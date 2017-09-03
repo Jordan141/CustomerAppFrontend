@@ -8,7 +8,7 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: darkcyan;
   height: 150px;
   padding: 20px;
   color: white;
@@ -21,4 +21,38 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.App button {
+  color: #fff;
+  font-size: 20px;
+  margin: 12px;
+  padding: 10px 20px;
+  border: none;
+}
+.App button:focus{
+  outline: 0;
+}
+
+.App button:hover
+.App button.hover {
+  box-shadow: inset 0 0 0 1px #27496d,0 5px 15px #193047;
+}
+
+.App button:active,
+.App button.active {
+  box-shadow: inset 0 0 0 1px #27496d,inset 0 5px 30px #193047;
+}
+
+.signup{
+  text-shadow: -2px 2px #156EC6;
+  background-color: #ff9664;
+  background-image: linear-gradient(to bottom, #3586D7, #0B68C3);
+  box-shadow: inset 0 0 0 1px #073566;
+}
+.login {
+  text-shadow: -2px 2px #EE0909;
+  background-color: #ff9664;
+  background-image: linear-gradient(to bottom, #EF2A2A, #A71A1A);
+  box-shadow: inset 0 0 0 1px #9E0707;
 }
