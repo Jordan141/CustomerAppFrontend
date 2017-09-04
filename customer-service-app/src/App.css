@@ -1,46 +1,57 @@
-.App {
+.welcome {
+  display: inline-block;
+  height:100vh;
+}
+.sidebar{
+  background-size: auto 100%;
+  height:100vh;
+  float: left;
+  width: 30%;
+}
+
+.inputArea{
+  position: relative;
+  top: 30%;
   text-align: center;
+
+
+  transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
+  animation: slide-in 0.5s forwards;
+  -webkit-animation: slide-in 0.5s forwards;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+@keyframes slide-in {
+  100% { transform: translateY(0%); }
 }
 
-.App-header {
-  background-color: darkcyan;
-  height: 150px;
-  padding: 20px;
-  color: white;
+@-webkit-keyframes slide-in {
+  100% { -webkit-transform: translateY(0%); }
 }
 
-.App-intro {
-  font-size: large;
+.inputArea input {
+  margin: 8px;
+  padding: 10px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.App button {
+.welcome button {
   color: #fff;
   font-size: 20px;
   margin: 12px;
-  padding: 10px 20px;
+  padding: 10px 70px;
   border: none;
 }
-.App button:focus{
+.welcome button:focus{
   outline: 0;
 }
 
-.App button:hover
-.App button.hover {
+.welcome button:hover
+.welcome button.hover {
   box-shadow: inset 0 0 0 1px #27496d,0 5px 15px #193047;
 }
 
-.App button:active,
-.App button.active {
+.welcome button:active,
+.welcome button.active {
   box-shadow: inset 0 0 0 1px #27496d,inset 0 5px 30px #193047;
 }
 

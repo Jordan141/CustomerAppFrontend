@@ -1,13 +1,14 @@
 const React = require('react')
-const logo = require('./../logo.svg')
-const {uri} = require('./../config.json')
 const axios = require('axios')
+const logo = require('./../logo.svg')
+const sidebar = require('./../business.jpg')
+const {uri} = require('./../config.json')
 const LOGIN_API = '/login'
 const REGISTER_API = '/register'
 
 const postData = (uri,data) => 
       axios.post(uri, data)
-      .then((res) => res.json())
+      .then((res) => res.data)
       .catch(err => console.error(err, JSON.stringify(data)))
 
 const buildUri = (uri, extension) => `${uri}${extension}`
@@ -20,16 +21,16 @@ const payLoad = {
 class WelcomePage extends React.Component {
     render(){
         return (
-            <div className="App">
-            <div className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
+            <div className="welcome container-fluid">
+            <img src = {sidebar} className='sidebar' alt='sidepic'/>
+            <div className="inputArea">
               <h2>Welcome to my Customer Service Application.</h2>
+              <h3> Please enter your login information below </h3>
+              <input type="text" placeholder = 'E-mail' /><br/>
+              <input type='password' placeholder = 'Password'/><br/>
+              To begin, please login to your account. If you have yet to register, please click <a href='#'>sign up </a> instead.<br/>
+              <button type="button" className="login" onClick = {() => postData(buildUri(uri,LOGIN_API), payLoad)}> Login </button>
             </div>
-            <p className="App-intro">
-              To begin, please login to your account. If you have yet to register, please click sign up instead.<br/>
-              <button type="button" className="login" onClick = {() => console.log(postData(buildUri(uri,LOGIN_API), payLoad))}> Login </button>
-              <button type="button" className="signup"> Sign Up </button>
-            </p>
           </div>       
         )
     }   
