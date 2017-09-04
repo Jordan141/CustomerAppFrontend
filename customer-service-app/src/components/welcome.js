@@ -1,6 +1,7 @@
+import signUp from './signup'
+import login from './login'
 const React = require('react')
 const axios = require('axios')
-const logo = require('./../logo.svg')
 const sidebar = require('./../business.jpg')
 const {uri} = require('./../config.json')
 const LOGIN_API = '/login'
@@ -19,21 +20,29 @@ const payLoad = {
 }
 
 class WelcomePage extends React.Component {
-    render(){
-        return (
-            <div className="welcome container-fluid">
-            <img src = {sidebar} className='sidebar' alt='sidepic'/>
-            <div className="inputArea">
-              <h2>Welcome to my Customer Service Application.</h2>
-              <h3> Please enter your login information below </h3>
-              <input type="text" placeholder = 'E-mail' /><br/>
-              <input type='password' placeholder = 'Password'/><br/>
-              To begin, please login to your account. If you have yet to register, please click <a href='#'>sign up </a> instead.<br/>
-              <button type="button" className="login" onClick = {() => postData(buildUri(uri,LOGIN_API), payLoad)}> Login </button>
-            </div>
-          </div>       
-        )
-    }   
+  constructor(props){
+    super(props)
+    this.sendData = this.sendData.bind(this)
+
+    this.state = {
+      isLoggedIn : false
+    }
+  }
+  sendData(item){
+    return postData(buildUri(uri,LOGIN_API), payLoad)
+  }
+
+  render(){
+    let login = <login onClick={()=> this.sendData(REGISTER_API)}/>
+    return (
+      <div className="welcome container-fluid">
+        <img src = {sidebar} className='sidebar' alt='sidepic'/>
+        <div className="inputArea">
+          <signUp onClick={()=> this.sendData(REGISTER_API)}/>
+        </div>
+      </div>       
+    )
+  }   
 }
 
 export default WelcomePage
